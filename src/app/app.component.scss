@@ -1,0 +1,64 @@
+mat-toolbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .left{
+        display: flex;
+        align-items: center;
+    }
+
+    .right{
+        .user-button{
+            mat-icon{
+                font-size: 16px;
+            }
+            span{
+                font-size: 16px;
+            }
+        }
+        
+    }
+
+}
+
+
+
+.sidenav-container{
+    
+    height: 100%;
+
+    .item-nav-dropdown{
+        display: flex;
+        align-items: center;
+        padding-right: 20px;
+    }
+    
+    .dropdown-list{
+        a{
+            padding-left: 20px;
+        }
+        
+    }
+
+
+
+
+    mat-sidenav, mat-sidenav-content{
+        transition: all 300ms ;
+    }
+
+    mat-nav-list{
+        span{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            i{
+                color: #00000095;
+            }
+        }
+    }
+
+    
+}

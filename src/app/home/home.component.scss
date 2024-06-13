@@ -1,0 +1,53 @@
+.container{
+    flex-wrap: wrap;
+    display: flex;
+    padding: 40px;
+    gap:30px;
+
+    .logo{
+        width: 300px;
+        height: 300px;
+        background-image: url(../../assets/sol.png);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        
+        flex: 1;
+        
+    }
+
+    .content-area{
+        flex: 4;
+        display: flex;
+        flex-direction: column;
+
+        .titulo-area{
+            display: flex;
+            padding-top: 50px;
+            padding-bottom: 20px;
+            flex-direction: column;
+            justify-content: center;
+    
+            h1{
+                font-size: 60px;
+                line-height: 50px;
+            }
+            p{
+                padding-left: 5px;
+                font-size: 20px;
+            }
+        }
+        .post-area{
+            mat-card{
+                margin-bottom: 10px;
+                mat-card-header{
+                  margin-bottom: 10px;
+                }
+                mat-card-content{
+                  margin-bottom: 10px;
+                }
+              }
+        }
+    }
+    
+}
