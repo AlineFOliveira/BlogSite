@@ -1,0 +1,25 @@
+<mat-card>
+    <mat-card-title>Editar Blog</mat-card-title>
+    <mat-card-content>
+        <form>
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Admin" value="{{blogs?.name}}" required="">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Handle</mat-label>
+                <input matInput placeholder="Handle" value="{{blogs?.handle}}" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>User</mat-label>
+                <mat-select>
+                  <mat-option value="one">First option</mat-option>
+                  <mat-option value="two">Second option</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <button mat-flat-button color="primary">Salvar</button>
+            
+        </form>
+    </mat-card-content>
+    
+</mat-card>

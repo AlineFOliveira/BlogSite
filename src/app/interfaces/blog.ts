@@ -1,5 +1,5 @@
 export interface Blog {
-    codigo: number;
+    id: number;
     name: string;
     handle: string;
     user: string;

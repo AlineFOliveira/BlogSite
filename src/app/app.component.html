@@ -14,7 +14,7 @@
             <i class="fa-solid fa-caret-down"></i>
         </button>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item><mat-icon>settings</mat-icon>Configurações</button>
+            <button mat-menu-item routerLink="/settings"><mat-icon>settings</mat-icon>Configurações</button>
             <button mat-menu-item><mat-icon>lock</mat-icon>Senha</button>
             <button mat-menu-item><mat-icon>logout</mat-icon>Sair</button>
         </mat-menu>
@@ -28,13 +28,13 @@
             <a mat-list-item (click)="toggleDropdown('Entidades')" ><mat-icon matListItemIcon>table_view</mat-icon><span>Entidades<i class="fa-solid fa-caret-down"></i></span></a>
             <div [ngStyle]="{ display: collapsed() ? 'none' : dropDownEntWidth()}" class="dropdown-list">
                 <a routerLink="/blogs" mat-list-item href="#"><mat-icon matListItemIcon>emergency</mat-icon><span>Blog</span></a>
-                <a mat-list-item href="#"><mat-icon matListItemIcon>emergency</mat-icon><span>Post</span></a>
+                <a routerLink="/posts" mat-list-item href="#"><mat-icon matListItemIcon>emergency</mat-icon><span>Post</span></a>
                 <a mat-list-item href="#"><mat-icon matListItemIcon>emergency</mat-icon><span>Tag</span></a>
             </div>
 
             <a mat-list-item (click)="toggleDropdown('Adm')"><mat-icon matListItemIcon>manage_accounts</mat-icon><span>Administração<i class="fa-solid fa-caret-down"></i></span></a>
             <div [ngStyle]="{ display: collapsed() ? 'none' : dropDownAdmWidth()}" class="dropdown-list">
-                <a mat-list-item href="#"><mat-icon matListItemIcon>groups</mat-icon><span>Usuários</span></a>
+                <a routerLink="/users" mat-list-item href="#"><mat-icon matListItemIcon>groups</mat-icon><span>Usuários</span></a>
                 <a mat-list-item href="#"><mat-icon matListItemIcon>analytics</mat-icon><span>Métricas</span></a>
                 <a mat-list-item href="#"><mat-icon matListItemIcon>monitor_heart</mat-icon><span>Sistema</span></a>
                 <a mat-list-item href="#"><mat-icon matListItemIcon>build</mat-icon><span>Configuração</span></a>
