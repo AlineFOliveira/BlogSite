@@ -5,13 +5,11 @@ export interface Users {
     lastName: string;
     email: string;
     imageUrl: string;
-    activated: boolean;
-    situacao: string;
+    activated: string;
     langKey: string;
-    perfis: string;
-    createdDate: string;
     createdBy: string;
-    quemModificou: string;
-    dataModificacao: string;
+    createdDate: string;
+    lastModifiedBy: string;
+    lastModifiedDate: string;
+    authorities: string[];
 }
-

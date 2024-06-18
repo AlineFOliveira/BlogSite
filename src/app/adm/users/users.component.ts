@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
@@ -6,6 +6,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { Users } from '../../interfaces/users';
+import { UsersService } from '../../services/users/users.service';
 
 @Component({
   selector: 'app-users',
@@ -15,10 +16,13 @@ import { Users } from '../../interfaces/users';
   styleUrl: './users.component.scss'
 })
 export class UsersComponent {
-  users: Users[] = [
-    {codigo: 1001, login: "admin", email: "admin@localhost", situacao: "Ativo", idioma: "pt-br", perfis: "ROLE_ADMIN", dataCriacao: "", quemModificou: "system", dataModificacao: "14/06/24 09:06"},
+  users: Users[] = [];
 
-  ];
+  constructor(private usersService: UsersService){}
 
-  displayedColumns = ['codigo', 'login', 'email', 'situacao', 'idioma', 'perfis', 'dataCriacao', 'quemModificou', 'dataModificacao'];
+  ngOnInit(){
+    this.usersService.getUsers().subscribe(user => this.users = user)
+  }
+
+  displayedColumns = ['id', 'login', 'email', 'situacao', 'idioma', 'perfis', 'dataCriacao', 'quemModificou', 'dataModificacao', 'actions'];
 }
