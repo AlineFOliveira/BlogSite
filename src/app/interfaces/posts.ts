@@ -1,7 +1,9 @@
+import { Blog } from "./blog";
+
 export interface Posts {
-    codigo: number;
+    id: number;
     title: string;
-    content: string;
-    date: string;
-    blog: string;
+    content?: string;
+    date?: string;
+    blog: Blog | null;
 }

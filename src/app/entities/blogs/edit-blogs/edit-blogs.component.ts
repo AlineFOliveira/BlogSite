@@ -25,11 +25,11 @@ import { Users } from '../../../interfaces/users';
 })
 export class EditBlogsComponent {
   blog: Blog = {
-    id: 0, name: '', handle: '', user: 0 
+    id: 0, name: '', handle: '', user: null
   };
 
   userSelected: Users[] = [];
-  selected: String = "";
+  selected: String | any = "";
 
   constructor(
     private route: ActivatedRoute,
@@ -43,12 +43,11 @@ export class EditBlogsComponent {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');//pega o parametro que veio da url
     this.loadBlog(Number(id));//transforma em numero, chama o loadBlog e manda o id pra la
-    this.loadUsers()
-    
+    this.loadUsers() 
   }
 
   loadBlog(id: number) {
-    this.blogService.getBlog(id).subscribe(blog => {this.blog = blog; this.selected = blog.user?.login;});
+    this.blogService.getBlog(id).subscribe(blog => {this.blog = blog; this.selected = blog.user?.login});
   }
 
   loadUsers(){
@@ -58,10 +57,9 @@ export class EditBlogsComponent {
   salvar(){
     console.log(this.blog)
     this.blogService.updateBlog(this.blog).subscribe(updatedBlog => { //chama a função snackbar e passa os paramentros
-      this.openSnackBar('Blog editado com sucesso', 'Fechar');
+      this.openSnackBar('Blog editado com sucesso!', 'Fechar');
       this.redirectSuccess();
     })
-    
   }
 
   openSnackBar(message: string, action: string) {//recebe os parâmetros
@@ -74,4 +72,16 @@ export class EditBlogsComponent {
     this.router.navigate(['/blogs']); //'navega' para a rota blogs
   }
 
+  get selectedUserId(){//é chamado quando o valor da seleção é lido 
+    return this.blog.user?.id || null
+  }
+
+  set selectedUserId(value: number | null) {//quando o valor do select é alterado, esse setter é chamado
+    const user = this.userSelected.find(user => user.id === value);//recebe o valor e procura na lista de user o user com o id correspondente
+    if (user) {//se o const de cima for true, ele altera o array do this.blog.user
+      this.blog.user = { id: user.id, login: user.login };//o id do this blog user vai corresponder ao user.id selecionado e ao login do user selecionado
+    } else {
+      this.blog.user = null;
+    }
+  }
 }

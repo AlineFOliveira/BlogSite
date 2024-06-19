@@ -1,7 +1,7 @@
 <mat-card>
-    <mat-card-title>Editar Blog</mat-card-title>
+    <mat-card-title>Criar Blog</mat-card-title>
     <mat-card-content>
-        <form (submit)="salvar()">
+        <form  >
             <mat-form-field>
                 <mat-label>Name</mat-label>
                 <input matInput placeholder="Admin" [(ngModel)]="blog.name" name="name" required >
@@ -12,13 +12,13 @@
             </mat-form-field>
             <mat-form-field>
                 <mat-label>User</mat-label>
-                <mat-select [(ngModel)]="selectedUserId" name="user">
-                    @for (user of userSelected; track user) {
+                <mat-select [(ngModel)]="selectedUserId" name="user" required>
+                    @for (user of users; track user) {
                         <mat-option [value]="user.id" >{{user.login}}</mat-option>
                     }
                 </mat-select>
             </mat-form-field>
-            <button mat-flat-button color="primary" type="submit">Salvar</button>
+            <button (click)="salvar()" mat-flat-button color="primary" type="submit">Salvar</button>
             
         </form>
     </mat-card-content>

@@ -7,45 +7,26 @@
             <p>Confira os posts</p>
         </div>
         <div class="post-area">
-            <mat-card class="example-card">
+          <!-- se existe o posts e se o conteudo dele for maior que zero -->
+          @if(posts && posts.length > 0){
+            <!-- para cada 'post' do array posts  -->
+            @for (post of posts; track post.id){
+              <mat-card class="example-card">
                 <mat-card-header>
-                  <mat-card-title>Post 1</mat-card-title>
-                  <mat-card-subtitle>11 jun 2024 09:55:00</mat-card-subtitle>
+                  <mat-card-title>{{post.title}}</mat-card-title>
+                  <mat-card-subtitle>{{post.date}}</mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content>
-                  <p>Exemplo exemplificado</p>
+                  <p>{{post.content}}</p>
                 </mat-card-content>
                 <mat-card-actions>
                   <button mat-button>LIKE</button>
                   <button mat-button>SHARE</button>
                 </mat-card-actions>
-            </mat-card>
-            <mat-card class="example-card">
-                <mat-card-header>
-                  <mat-card-title>Post 1</mat-card-title>
-                  <mat-card-subtitle>11 jun 2024 09:55:00</mat-card-subtitle>
-                </mat-card-header>
-                <mat-card-content>
-                  <p>Exemplo exemplificado</p>
-                </mat-card-content>
-                <mat-card-actions>
-                  <button mat-button>LIKE</button>
-                  <button mat-button>SHARE</button>
-                </mat-card-actions>
-            </mat-card>
-            <mat-card class="example-card">
-                <mat-card-header>
-                  <mat-card-title>Post 1</mat-card-title>
-                  <mat-card-subtitle>11 jun 2024 09:55:00</mat-card-subtitle>
-                </mat-card-header>
-                <mat-card-content>
-                  <p>Exemplo exemplificado</p>
-                </mat-card-content>
-                <mat-card-actions>
-                  <button mat-button>LIKE</button>
-                  <button mat-button>SHARE</button>
-                </mat-card-actions>
-            </mat-card>
+              </mat-card>
+            }
+          }
+            
         </div>
     </div>
     

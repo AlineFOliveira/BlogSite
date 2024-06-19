@@ -10,13 +10,15 @@ import { DatePipe } from '@angular/common';
 export class UsersService {
 
   private apiUrl = 'http://localhost:8080/api/admin/users';
+  private key = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTcxODg4MTE0MSwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSIiwiaWF0IjoxNzE4Nzk0NzQxfQ.oRaZalEben-Ges7XDSVpMMyJEDOfUDl2rgLUGlWpvAk50tj7vh8NMqay5UOv4bKhx4BolbNr2-c6UYxkbyBtAA';
+
 
   constructor(private http: HttpClient, private dataPipe: DatePipe) { }
 
   getUsers(): Observable<Users[]>{
     const headers = new HttpHeaders({//httpHeaders fornecem informações adicionais, transmitem metadados importantes. ex: tipo de midia que virá, credenciais, etc.
       'Content-Type': 'application/json',
-      'Authorization': `Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTcxODc5NDYxMywiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSIiwiaWF0IjoxNzE4NzA4MjEzfQ.bt4P1JANCSI-I89Gc2TbDq_W6yFm7vcMBH0hOa1RyXrbcx_8Jb_5vV7cbygLXxClGiqFph7uFWGv9VIuuw1s4A`
+      'Authorization': `Bearer ${this.key}`
     });
     return this.http.get<Users[]>(this.apiUrl, {headers})//faz a requisição, esperando um array blog e fornecendo os headers necessários e retorna o resultado 
     .pipe(//pra poder mexer nos resultados
