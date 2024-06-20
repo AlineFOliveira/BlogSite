@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -8,23 +9,25 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import { BlogsService } from '../../../../services/blogs/blogs.service';
-import { Blog } from '../../../../interfaces/blog';
-import { UsersService } from '../../../../services/users/users.service';
-import { Users } from '../../../../interfaces/users';
+import {MatIconModule} from '@angular/material/icon';
+
+import { BlogsService } from '../../../services/blogs/blogs.service';
+import { Blog, newBlog } from '../../../interfaces/blog';
+import { UsersService } from '../../../services/users/users.service';
+import { Users } from '../../../interfaces/users';
 
 
 @Component({
   selector: 'app-add-blogs',
   standalone: true,
-  imports: [MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatSelectModule, FormsModule],
+  imports: [MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatSelectModule, MatIconModule, FormsModule, RouterModule],
   templateUrl: './add-blogs.component.html',
   styleUrl: './add-blogs.component.scss'
 })
 export class AddBlogsComponent {
 
-  blog: Blog = {
-    id: 0, name: '', handle: '', user: null
+  blog: newBlog = {
+    id: null, name: '', handle: '', user: null
   }
   users: Users[] =[];
   

@@ -1,7 +1,7 @@
 <mat-card>
     <mat-card-title>Blogs</mat-card-title>
     <div class="actions">
-      <button mat-fab extended  color="primary">
+      <button mat-fab extended (click)="loadBlogs()" color="primary">
         <mat-icon>refresh</mat-icon> Atualizar Lista
       </button>
       <button routerLink="/blogs/create" mat-fab extended color="primary">
@@ -47,7 +47,8 @@
                     <mat-icon>edit</mat-icon>
                     <span>Editar</span>
                   </button>
-                  <button mat-menu-item>
+                  
+                  <button (click)="openDialog(blog.id)" mat-menu-item>
                     <mat-icon>delete</mat-icon>
                     <span>Excluir</span>
                   </button>

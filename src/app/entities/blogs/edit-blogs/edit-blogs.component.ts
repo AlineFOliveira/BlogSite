@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { FormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
@@ -8,7 +9,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import { RouterModule } from '@angular/router';
+import {MatIconModule} from '@angular/material/icon';
+
 
 
 import { BlogsService } from '../../../services/blogs/blogs.service';
@@ -19,7 +21,7 @@ import { Users } from '../../../interfaces/users';
 @Component({
   selector: 'app-edit-blogs',
   standalone: true,
-  imports: [RouterModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatSelectModule, FormsModule],
+  imports: [RouterModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatSelectModule, MatIconModule, FormsModule],
   templateUrl: './edit-blogs.component.html',
   styleUrl: './edit-blogs.component.scss'
 })

@@ -6,7 +6,7 @@ import { UsersComponent } from './adm/users/users.component';
 import { SettingsComponent } from './user/settings/settings.component';
 import { ViewBlogsComponent } from './entities/blogs/view-blogs/view-blogs.component';
 import { EditBlogsComponent } from './entities/blogs/edit-blogs/edit-blogs.component';
-import { AddBlogsComponent } from './entities/blogs/add-blogs/add-blogs/add-blogs.component';
+import { AddBlogsComponent } from './entities/blogs/add-blogs/add-blogs.component';
 
 export const routes: Routes = [
     {path:"", component: HomeComponent},

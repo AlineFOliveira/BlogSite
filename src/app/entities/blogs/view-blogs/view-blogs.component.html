@@ -1,5 +1,5 @@
 <mat-card>
-    <mat-card-title>Detalhes</mat-card-title>
+    <mat-card-title><a routerLink="/blogs"><mat-icon>arrow_back_ios</mat-icon></a>Detalhes</mat-card-title>
     <mat-card-content>
         <mat-list>
             <mat-list-item>
@@ -14,6 +14,8 @@
               <span matListItemTitle>Handle:</span>
               <span matListItemLine>{{blog?.handle}}</span>
             </mat-list-item>
+            <button [routerLink]="['/blogs/edit', blog?.id]" mat-flat-button color="primary">Editar</button>
+            
 
         </mat-list>
     </mat-card-content>

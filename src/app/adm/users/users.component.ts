@@ -21,7 +21,7 @@ export class UsersComponent {
   constructor(private usersService: UsersService){}
 
   ngOnInit(){
-    this.usersService.getUsers().subscribe(user => this.users = user)
+    this.usersService.getUsers(0, 1).subscribe(user => this.users = user)
   }
 
   displayedColumns = ['id', 'login', 'email', 'situacao', 'idioma', 'perfis', 'dataCriacao', 'quemModificou', 'dataModificacao', 'actions'];
