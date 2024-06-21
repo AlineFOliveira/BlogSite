@@ -20,3 +20,16 @@ mat-card{
     flex-wrap: wrap;
     gap: 10px;
 }
+
+.authoritiesCell{
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 5px;
+    .authorities{
+        background-color: rgba(159, 192, 214, 0.5);
+        padding: 5px;
+        border-radius: 5px;
+    }
+}

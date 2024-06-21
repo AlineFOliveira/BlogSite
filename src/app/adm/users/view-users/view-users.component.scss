@@ -1,0 +1,30 @@
+mat-card{
+    margin: 10px;
+
+    mat-card-title{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 30px 0px 20px 30px;
+        font-size: 32px;
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    }
+    button{
+        margin-top: 30px;
+        width: 200px;
+    }
+}
+
+.authoritiesCell{
+    padding-top: 5px;
+    display: flex;
+    gap: 5px;
+    .authorities{
+        background-color: rgba(159, 192, 214, 0.219);
+        padding: 5px;
+        border-radius: 5px;
+    }
+}

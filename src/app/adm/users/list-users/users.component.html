@@ -4,7 +4,7 @@
       <button mat-fab extended  color="primary">
         <mat-icon>refresh</mat-icon> Atualizar Lista
       </button>
-      <button mat-fab extended color="primary">
+      <button routerLink="/users/create" mat-fab extended color="primary">
         <mat-icon>add</mat-icon> Adicionar
       </button>
     </div>
@@ -33,12 +33,17 @@
 
             <ng-container matColumnDef="perfis">
                 <th mat-header-cell *matHeaderCellDef> Perfis </th>
-                <td style="color:rgb(71, 71, 122);" mat-cell *matCellDef="let user"> {{user.authorities}} </td>
+                <td class="authoritiesCell" mat-cell *matCellDef="let user">
+                  @for (authority of user.authorities; track $index) {
+                  <div>
+                    <span class="authorities">{{ authority }}</span>
+                  </div>
+                  } </td>
             </ng-container>
 
             <ng-container matColumnDef="dataCriacao">
                 <th mat-header-cell *matHeaderCellDef> Criado em </th>
-                <td mat-cell *matCellDef="let user"> {{user.createdDate}} </td>
+                <td mat-cell *matCellDef="let user"> {{user.createdDate | date: 'dd/MM/yyyy'}} </td>
             </ng-container>
 
             <ng-container matColumnDef="quemModificou">
@@ -48,11 +53,22 @@
 
             <ng-container matColumnDef="dataModificacao">
                 <th mat-header-cell *matHeaderCellDef> Modificado em </th>
-                <td mat-cell *matCellDef="let user"> {{user.lastModifiedDate}} </td>
+                <td mat-cell *matCellDef="let user"> {{user.lastModifiedDate | date}}  </td>
             </ng-container>
             <ng-container matColumnDef="situacao">
               <th mat-header-cell *matHeaderCellDef> Situação </th>
-              <td mat-cell *matCellDef="let user"> <button mat-flat-button color="accent">{{user.activated}}</button> </td>
+              <td mat-cell *matCellDef="let user"> 
+                <ng-container *ngIf="user.activated; else inativo">
+                  <button (click)="altSituation(user)" mat-flat-button color="primary">
+                    Ativo
+                  </button>
+                </ng-container>
+                <ng-template #inativo>
+                  <button (click)="altSituation(user)" mat-flat-button color="warn">
+                    Inativo
+                  </button>
+                </ng-template>
+              </td>
             </ng-container>
 
             <ng-container matColumnDef="actions">
@@ -62,7 +78,7 @@
                   <mat-icon>more_vert</mat-icon>
                 </button>
                 <mat-menu #actions="matMenu">
-                  <button mat-menu-item>
+                  <button [routerLink]="['/users/view', user.login]" mat-menu-item>
                     <mat-icon>visibility</mat-icon>
                     <span>Visualizar</span>
                   </button>
@@ -83,11 +99,15 @@
           </table>
     </mat-card-content>
 
+    
+
     <div class="paginator-area">
         <mat-card-actions>
-            <mat-paginator [length]="100"
-                  [pageSize]="10"
-                  [pageSizeOptions]="[5, 10, 25, 100]"
+            <mat-paginator [length]="length"
+                  (page)="handlePageEvent($event)"
+                  [pageSize]="1"
+                  [pageSizeOptions]="[1, 2]"
+                  [pageIndex]="pageIndex"
                   aria-label="Select page">
             </mat-paginator>
         </mat-card-actions>

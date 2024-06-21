@@ -15,6 +15,7 @@ import { BlogsService } from '../../../services/blogs/blogs.service';
 import { Blog, newBlog } from '../../../interfaces/blog';
 import { UsersService } from '../../../services/users/users.service';
 import { Users } from '../../../interfaces/users';
+import { PageEvent } from '@angular/material/paginator';
 
 
 @Component({
@@ -30,20 +31,24 @@ export class AddBlogsComponent {
     id: null, name: '', handle: '', user: null
   }
   users: Users[] =[];
+
+  
   
   constructor(
     private blogsService: BlogsService,
     private usersService: UsersService,
     private snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
+
   ){}
 
+  
   ngOnInit(){
     this.loadUsers() 
   }
 
   loadUsers(){
-    this.usersService.getUsers().subscribe(user => this.users = user)
+    this.usersService.getUsers(0, 1).subscribe(user => this.users = user)
   }
 
   salvar(){

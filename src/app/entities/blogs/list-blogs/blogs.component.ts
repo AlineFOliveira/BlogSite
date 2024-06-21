@@ -15,9 +15,9 @@ import {MatDialog,
   MatDialogRef,
   MatDialogTitle,} from '@angular/material/dialog';
 
-import { Blog } from '../../interfaces/blog';
-import { BlogsService } from '../../services/blogs/blogs.service';
-import { DialogBoxComponent } from './dialog-box/dialog-box.component';
+import { Blog } from '../../../interfaces/blog';
+import { BlogsService } from '../../../services/blogs/blogs.service';
+import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
 
 
 

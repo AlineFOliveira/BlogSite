@@ -1,0 +1,55 @@
+<mat-card>
+    <mat-card-title><a routerLink="/users"><mat-icon>arrow_back_ios</mat-icon></a>Detalhes</mat-card-title>
+    <mat-card-content>
+        <mat-list>
+            <mat-list-item>
+              <span matListItemTitle>Código:</span>
+              <span matListItemLine>{{user?.id}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matListItemTitle>Nome:</span>
+              <span matListItemLine>{{user?.firstName}}</span>
+            </mat-list-item>
+            <mat-list-item>
+                <span matListItemTitle>Sobrenome:</span>
+                <span matListItemLine>{{user?.lastName}}</span>
+            </mat-list-item>
+            <mat-list-item>
+                <span matListItemTitle>E-mail:</span>
+                <span matListItemLine>{{user?.email}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matListItemTitle>Idioma:</span>
+              <span matListItemLine>{{user?.langKey}}</span>
+            </mat-list-item>
+            <mat-list-item>
+                <span matListItemTitle>Criado por:</span>
+                <span matListItemLine>{{user?.createdBy}}</span>
+            </mat-list-item>
+            <mat-list-item>
+                <span matListItemTitle>Criado em:</span>
+                <span matListItemLine>{{user?.createdDate}}</span>
+            </mat-list-item>
+            <mat-list-item>
+                <span matListItemTitle>Modificado por:</span>
+                <span matListItemLine>{{user?.lastModifiedBy}}</span>
+            </mat-list-item>
+            <mat-list-item>
+                <span matListItemTitle>Modificado em:</span>
+                <span matListItemLine>{{user?.lastModifiedDate}}</span>
+            </mat-list-item>
+            <mat-list-item>
+                <span matListItemTitle>Perfis</span>
+                <span matListItemLine class="authoritiesCell">
+                    @for (authority of user?.authorities; track $index) {
+                        <span class="authorities">{{ authority }}</span>
+                    }
+                </span>
+            </mat-list-item>
+            <button mat-flat-button color="primary">Editar</button>
+            
+
+        </mat-list>
+    </mat-card-content>
+</mat-card>
+

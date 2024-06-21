@@ -5,11 +5,11 @@ export interface Users {
     lastName: string;
     email: string;
     imageUrl: string;
-    activated: string;
+    activated: boolean;
     langKey: string;
     createdBy: string;
     createdDate: string;
     lastModifiedBy: string;
-    lastModifiedDate: string;
+    lastModifiedDate: Date;
     authorities: string[];
 }
