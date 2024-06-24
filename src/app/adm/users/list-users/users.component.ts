@@ -37,11 +37,11 @@ export class UsersComponent {
     this.length = e.length;
     this.pageSize = e.pageSize;
     this.pageIndex = e.pageIndex;
-    this.usersService.getUsers(this.pageIndex, this.pageSize).subscribe(user => this.users = user)//toda vez que o evento dispara, quando altera algo no paginator, chama a busca de novo, para atualizar os valores mostrados
+    this.usersService.getUsersPaginator(this.pageIndex, this.pageSize).subscribe(user => this.users = user)//toda vez que o evento dispara, quando altera algo no paginator, chama a busca de novo, para atualizar os valores mostrados
 
   }
   ngOnInit(){
-    this.usersService.getUsers(this.pageIndex, this.pageSize).subscribe(user => this.users = user)
+    this.usersService.getUsersPaginator(this.pageIndex, this.pageSize).subscribe(user => this.users = user)
     this.usersService.getUsersTotal().subscribe(userTotal => this.length = userTotal)
   }
 

@@ -48,7 +48,7 @@ export class AddBlogsComponent {
   }
 
   loadUsers(){
-    this.usersService.getUsers(0, 1).subscribe(user => this.users = user)
+    this.usersService.getUsers().subscribe(user => this.users = user)
   }
 
   salvar(){

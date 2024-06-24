@@ -53,7 +53,7 @@ export class EditBlogsComponent {
   }
 
   loadUsers(){
-    this.usersService.getUsers(0, 1).subscribe(user => this.userSelected = user)
+    this.usersService.getUsers().subscribe(user => this.userSelected = user)
   }
 
   salvar(){

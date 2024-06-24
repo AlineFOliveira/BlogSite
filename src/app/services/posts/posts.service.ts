@@ -13,7 +13,7 @@ import { Observable, map } from 'rxjs';
 export class PostsService {
 
   private apiUrl = 'http://localhost:8080/api/posts'
-  private key = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTcxOTA1MzU3MiwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSIiwiaWF0IjoxNzE4OTY3MTcyfQ.nlHcDYk2TpiRA3z0Ilft-9iJu895Mgt1xZqhpaNk9uPCLSxc_llrm4oDLmw7uV9BlPBcbi10U-Fd6f79sItGBw';
+  private key = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTcxOTMxMjcyNSwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSIiwiaWF0IjoxNzE5MjI2MzI1fQ.3vRB6lBWtDfgd3PIgckIFXveiL4X7CF_Ck91ab9zHB1honHcdE_fVBw6ZLJM-30iLHLSOnZkmRb4_FmPIQTy7Q';
 
 
 
